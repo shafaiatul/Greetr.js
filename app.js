@@ -1,14 +1,16 @@
+// Gets a new object ( the architecture allows us to not have to use 'new' keyword here )
 var g = $G('John', 'Doe');
 
+//use the chainable methods
 g.greet('en').setLang('en').greet(true).log();
 
-// $('#logindiv #lang').on('change', function() {
-//     $('#login').on('click',function() {
-//
-//         if($('option').attr('value', 'en') === 'en') {
-//             $('h1#greeting').text(g.greet('en').setLang('en').greet(true).log());
-//         } else {
-//             $('h1#greeting').text(g.greet('es').setLang('es').greet(true).log());
-//         }
-//     });
-// });
+//lets use our object on the click of the login button
+$('#login').on('click',function() {
+//Create  a new 'Greetr' object (let's pretend we know the name from the login)
+    var loginGrtr = $G('John', 'Doe');
+    //hide the login in the screen
+    $('#logindiv').hide();
+//fire off the HTML greeting, paasing the '#greeting' as the selector and the chosen language and the log the welcome as well
+    loginGrtr.setLang($('#lang').val()).HTMLGreeting('#greeting', true).log();
+
+});

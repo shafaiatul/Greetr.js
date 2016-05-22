@@ -1,4 +1,4 @@
-(function(global, $) {
+;(function(global, $) {
     // ***************************************
     // Step 1 => $G point to 'Greetr' function
     // and it returns a new Greetr.init
