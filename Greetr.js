@@ -14,7 +14,6 @@
         es : 'Hola'
     };
 
-
     var formalGreetings = {
         en : 'Greetings',
         es : 'Saludos'
@@ -72,6 +71,25 @@
             this.language = lang;
 
             this.validate();
+
+            return this;
+        },
+
+        //Adding Jquery Support
+        HTMLGreeting: function(selector, formal) {
+            if(!$) {
+                throw 'Jquery not loaded';
+            }
+            if(!selector) {
+                throw 'Missing Jquery selector';
+            }
+            var msg;
+            if(formal) {
+                msg = this.formalGreetings();
+            } else {
+                msg = this.greeting();
+            }
+            $(selector).html(msg);
 
             return this;
         }
